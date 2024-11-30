@@ -8,9 +8,7 @@ from plotting.sp_plot import SPPlot
 params = {"version": 1, "num_cols": 5, "rad_max": 2.4}
 data = SPData().gen_problem(**params) 
 plt = SPPlot(data).plot_problem()
-#plt.show()
-
-
+plt.show()
 
 config = {"num_reads":1000,"num_sweeps":1000}
 solve_func = neal.SimulatedAnnealingSampler().sample_qubo
