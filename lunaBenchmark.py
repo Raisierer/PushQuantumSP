@@ -2,11 +2,11 @@ from lunaSolve import solve
 
 from lunaHelper import read_json
 
-solver = "QAGA+" # QAGA+ | SAGA+ | QA
-dataset = "v1c3"
-lidarVectorSize = 3 # v1 = 5 | v2 = 5 | v3 = 20
+solver = "SAGA+" # QAGA+ | SAGA+ | QA
+dataset = "v2c20"
+lidarVectorSize = 20 # v1 = 5 | v2 = 5 | v3 = 20
 
-solve(solver="QAGA+", qubo_matrix=read_json(f'./input/qubo_{dataset}.json'), solver_parameters={
+solve(solver=solver, qubo_matrix=read_json(f'./input/qubo_{dataset}.json'), solver_parameters={
             'p_size': 40,
             'mut_rate': 1,
             'rec_rate': 2
