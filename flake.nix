@@ -58,10 +58,11 @@
 
                   processes.hello.exec = "hello";
 
-                  env.UV_PYTHON_PREFERENCE = "only-system";
-                  env.UV_PYTHON = "${pkgs.python311}";
+                  #env.UV_PYTHON_PREFERENCE = "only-system";
+                  #env.UV_PYTHON = "${pkgs.python311}";
 
                   env.LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
+                  #env.VIRTUAL_ENV = ".devenv/state/venv";
                 }
               ];
             };
