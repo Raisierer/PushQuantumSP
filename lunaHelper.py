@@ -78,11 +78,11 @@ def exportSolution(solution, output="test.json"):
     write_json(solution, file_name=output)
 
 
-def qpu_token_create(ls, dwave_token):
+def qpu_token_create(ls, dwave_token, name):
     try:
         # Set your token to access D-Wave's hardware
         ls.qpu_token.create(
-            name="PushQuantumDWaveToken",
+            name=name,
             provider="dwave",
             token=dwave_token,
             token_type="personal"

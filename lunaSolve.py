@@ -16,12 +16,13 @@ def solve(solver, qubo_matrix, solver_parameters, lidarVectorSize, solutionFile)
     # Initiate the luna sdk objects
     ls = luna_sdk.LunaSolve(api_key=api_key)
     lq = luna_sdk.LunaQ(api_key=api_key)
+    dwaveTokenName = "Token3"
 
     # Upload your QUBO to LunaSolve
     optimization = ls.optimization.create_from_qubo(name="My QUBO", matrix=qubo_matrix)
 
     # Create Token for d-wave if not already done
-    qpu_token_create(ls, dwave_token)
+    qpu_token_create(ls, dwave_token, dwaveTokenName)
 
     print("Ready to start quantum computing!")
 
@@ -33,7 +34,7 @@ def solve(solver, qubo_matrix, solver_parameters, lidarVectorSize, solutionFile)
         qpu_tokens=TokenProvider(
             dwave=QpuToken(
                 source="personal",
-                name="PushQuantumDWaveToken"
+                name=dwaveTokenName
             )
         ),
         solver_parameters=solver_parameters
@@ -51,22 +52,26 @@ def solve(solver, qubo_matrix, solver_parameters, lidarVectorSize, solutionFile)
     print(end="\r")
     print("Done computing!                     ")
 
-    # Recalculate the objective value
-    for result in solution.results:
-        sum = 0
-        for i in range(lidarVectorSize):
-            sum = sum + result.sample["x"+str(i)]
-        if result.feasible:
-            result.obj_value = sum
-        else:
-            result.obj_value = lidarVectorSize + 1
+    try:
+        # Recalculate the objective value
+        for result in solution.results:
+            sum = 0
+            for i in range(lidarVectorSize):
+                sum = sum + result.sample["x"+str(i)]
+            if result.feasible:
+                result.obj_value = sum
+            else:
+                result.obj_value = lidarVectorSize + 1
 
-    # Sort the results according to the new objective value
-    solution.results.sort(key=lambda x: x.obj_value)
+        # Sort the results according to the new objective value
+        solution.results.sort(key=lambda x: x.obj_value)
 
-    # Store solution
-    exportSolution(solution=solution, output=solutionFile)
-    print("Exported solution!")
+        # Store solution
+        exportSolution(solution=solution, output=solutionFile)
+        print("Exported solution!")
+    except:
+        print("Error!!")
+        print(solution)
 
 if __name__ == "__main__":
     solve(solver="QAGA+", qubo_matrix=read_json("./input/test/qubo_00.json"), solver_parameters={
