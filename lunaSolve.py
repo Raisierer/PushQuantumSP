@@ -6,7 +6,7 @@ from luna_sdk.schemas.qpu_token import QpuToken, TokenProvider
 
 from lunaHelper import read_json, exportSolution, qpu_token_create
 
-def lunaSolve(solver, qubo_matrix, solver_parameters, lidarVectorSize, solutionFile):
+def solve(solver, qubo_matrix, solver_parameters, lidarVectorSize, solutionFile):
     print("Setting up the job..")
     # Retrieve api and tokens from .env file
     load_dotenv()
@@ -68,9 +68,9 @@ def lunaSolve(solver, qubo_matrix, solver_parameters, lidarVectorSize, solutionF
     exportSolution(solution=solution, output=solutionFile)
     print("Exported solution!")
 
-
-lunaSolve(solver="QAGA+", qubo_matrix=read_json("./input/test/qubo_00.json"), solver_parameters={
-            'p_size': 40,
-            'mut_rate': 1,
-            'rec_rate': 2
-        }, lidarVectorSize=5, solutionFile="./output/test/MySolution.json")
+if __name__ == "__main__":
+    solve(solver="QAGA+", qubo_matrix=read_json("./input/test/qubo_00.json"), solver_parameters={
+                'p_size': 40,
+                'mut_rate': 1,
+                'rec_rate': 2
+            }, lidarVectorSize=5, solutionFile="./output/test/MySolution.json")

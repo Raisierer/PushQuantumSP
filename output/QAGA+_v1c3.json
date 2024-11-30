@@ -1,9 +1,9 @@
 {
-    "id": "674b7dade16c143066a93738",
+    "id": "674b81d007b410050331572d",
     "name": null,
-    "created_date": "2024-11-30 21:03:41.313000+01:00",
+    "created_date": "2024-11-30 21:21:20.873000+01:00",
     "created_by": "marvin@raiser.dev",
-    "modified_date": "2024-11-30 21:04:56.834000+01:00",
+    "modified_date": "2024-11-30 21:22:37.887000+01:00",
     "modified_by": null,
     "error_message": null,
     "solver_job_info": null,
@@ -434,8 +434,22 @@
                 "x1": 0,
                 "x2": 0,
                 "x3": 0,
-                "x4": 0,
+                "x4": 1,
                 "x5": 1,
+                "x6": 0
+            },
+            "obj_value": 1,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1,
+                "x1": 0,
+                "x2": 0,
+                "x3": 1,
+                "x4": 0,
+                "x5": 0,
                 "x6": 0
             },
             "obj_value": 1,
@@ -447,10 +461,24 @@
                 "x0": 0,
                 "x1": 0,
                 "x2": 1,
-                "x3": 0,
-                "x4": 0,
+                "x3": 1,
+                "x4": 1,
                 "x5": 0,
-                "x6": 0
+                "x6": 1
+            },
+            "obj_value": 1,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 0,
+                "x1": 1,
+                "x2": 0,
+                "x3": 1,
+                "x4": 1,
+                "x5": 0,
+                "x6": 1
             },
             "obj_value": 1,
             "feasible": true,
@@ -462,8 +490,8 @@
                 "x1": 0,
                 "x2": 0,
                 "x3": 0,
-                "x4": 0,
-                "x5": 0,
+                "x4": 1,
+                "x5": 1,
                 "x6": 0
             },
             "obj_value": 1,
@@ -472,122 +500,10 @@
         },
         {
             "sample": {
-                "x0": 1,
-                "x1": 0,
+                "x0": 0,
+                "x1": 1,
                 "x2": 0,
-                "x3": 0,
-                "x4": 0,
-                "x5": 0,
-                "x6": 0
-            },
-            "obj_value": 1,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 1,
-                "x1": 0,
-                "x2": 0,
-                "x3": 0,
-                "x4": 0,
-                "x5": 0,
-                "x6": 0
-            },
-            "obj_value": 1,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 1,
-                "x1": 0,
-                "x2": 0,
-                "x3": 0,
-                "x4": 0,
-                "x5": 0,
-                "x6": 0
-            },
-            "obj_value": 1,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 1,
-                "x1": 0,
-                "x2": 0,
-                "x3": 0,
-                "x4": 0,
-                "x5": 0,
-                "x6": 0
-            },
-            "obj_value": 1,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 1,
-                "x1": 0,
-                "x2": 0,
-                "x3": 0,
-                "x4": 0,
-                "x5": 0,
-                "x6": 0
-            },
-            "obj_value": 1,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 1,
-                "x1": 0,
-                "x2": 0,
-                "x3": 0,
-                "x4": 0,
-                "x5": 0,
-                "x6": 0
-            },
-            "obj_value": 1,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 1,
-                "x1": 0,
-                "x2": 0,
-                "x3": 0,
-                "x4": 0,
-                "x5": 0,
-                "x6": 0
-            },
-            "obj_value": 1,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 1,
-                "x1": 0,
-                "x2": 0,
-                "x3": 0,
-                "x4": 0,
-                "x5": 0,
-                "x6": 0
-            },
-            "obj_value": 1,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 1,
-                "x1": 0,
-                "x2": 0,
-                "x3": 0,
+                "x3": 1,
                 "x4": 0,
                 "x5": 0,
                 "x6": 1
@@ -752,6 +668,160 @@
         },
         {
             "sample": {
+                "x0": 1,
+                "x1": 0,
+                "x2": 0,
+                "x3": 0,
+                "x4": 0,
+                "x5": 0,
+                "x6": 0
+            },
+            "obj_value": 1,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1,
+                "x1": 0,
+                "x2": 0,
+                "x3": 0,
+                "x4": 0,
+                "x5": 0,
+                "x6": 0
+            },
+            "obj_value": 1,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1,
+                "x1": 0,
+                "x2": 0,
+                "x3": 0,
+                "x4": 0,
+                "x5": 0,
+                "x6": 0
+            },
+            "obj_value": 1,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1,
+                "x1": 0,
+                "x2": 0,
+                "x3": 0,
+                "x4": 0,
+                "x5": 0,
+                "x6": 0
+            },
+            "obj_value": 1,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1,
+                "x1": 0,
+                "x2": 0,
+                "x3": 0,
+                "x4": 0,
+                "x5": 0,
+                "x6": 0
+            },
+            "obj_value": 1,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1,
+                "x1": 0,
+                "x2": 0,
+                "x3": 0,
+                "x4": 0,
+                "x5": 0,
+                "x6": 0
+            },
+            "obj_value": 1,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1,
+                "x1": 0,
+                "x2": 0,
+                "x3": 0,
+                "x4": 0,
+                "x5": 0,
+                "x6": 0
+            },
+            "obj_value": 1,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1,
+                "x1": 0,
+                "x2": 0,
+                "x3": 0,
+                "x4": 1,
+                "x5": 0,
+                "x6": 0
+            },
+            "obj_value": 1,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1,
+                "x1": 0,
+                "x2": 0,
+                "x3": 0,
+                "x4": 1,
+                "x5": 0,
+                "x6": 0
+            },
+            "obj_value": 1,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1,
+                "x1": 0,
+                "x2": 0,
+                "x3": 0,
+                "x4": 0,
+                "x5": 0,
+                "x6": 0
+            },
+            "obj_value": 1,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1,
+                "x1": 0,
+                "x2": 0,
+                "x3": 0,
+                "x4": 0,
+                "x5": 0,
+                "x6": 0
+            },
+            "obj_value": 1,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
                 "x0": 0,
                 "x1": 0,
                 "x2": 1,
@@ -766,6 +836,34 @@
         },
         {
             "sample": {
+                "x0": 0,
+                "x1": 1,
+                "x2": 0,
+                "x3": 0,
+                "x4": 0,
+                "x5": 0,
+                "x6": 0
+            },
+            "obj_value": 1,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1,
+                "x1": 0,
+                "x2": 0,
+                "x3": 0,
+                "x4": 0,
+                "x5": 0,
+                "x6": 0
+            },
+            "obj_value": 1,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
                 "x0": 1,
                 "x1": 0,
                 "x2": 0,
@@ -796,9 +894,79 @@
             "sample": {
                 "x0": 1,
                 "x1": 0,
+                "x2": 0,
+                "x3": 0,
+                "x4": 0,
+                "x5": 0,
+                "x6": 0
+            },
+            "obj_value": 1,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 0,
+                "x1": 1,
                 "x2": 1,
-                "x3": 0,
+                "x3": 1,
                 "x4": 0,
+                "x5": 1,
+                "x6": 0
+            },
+            "obj_value": 2,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1,
+                "x1": 1,
+                "x2": 0,
+                "x3": 1,
+                "x4": 1,
+                "x5": 0,
+                "x6": 1
+            },
+            "obj_value": 2,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1,
+                "x1": 1,
+                "x2": 0,
+                "x3": 1,
+                "x4": 0,
+                "x5": 1,
+                "x6": 1
+            },
+            "obj_value": 2,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 0,
+                "x1": 1,
+                "x2": 1,
+                "x3": 1,
+                "x4": 0,
+                "x5": 1,
+                "x6": 1
+            },
+            "obj_value": 2,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1,
+                "x1": 1,
+                "x2": 0,
+                "x3": 0,
+                "x4": 1,
                 "x5": 0,
                 "x6": 1
             },
@@ -810,10 +978,10 @@
             "sample": {
                 "x0": 1,
                 "x1": 0,
-                "x2": 0,
-                "x3": 0,
+                "x2": 1,
+                "x3": 1,
                 "x4": 1,
-                "x5": 1,
+                "x5": 0,
                 "x6": 1
             },
             "obj_value": 2,
@@ -823,112 +991,14 @@
         {
             "sample": {
                 "x0": 1,
-                "x1": 0,
-                "x2": 0,
-                "x3": 0,
-                "x4": 1,
-                "x5": 0,
-                "x6": 0
-            },
-            "obj_value": 2,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 1,
-                "x1": 0,
-                "x2": 0,
-                "x3": 1,
-                "x4": 0,
-                "x5": 0,
-                "x6": 0
-            },
-            "obj_value": 2,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 1,
-                "x1": 0,
-                "x2": 0,
-                "x3": 0,
-                "x4": 1,
-                "x5": 0,
-                "x6": 0
-            },
-            "obj_value": 2,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 0,
                 "x1": 1,
-                "x2": 1,
+                "x2": 0,
                 "x3": 0,
-                "x4": 0,
-                "x5": 0,
-                "x6": 0
-            },
-            "obj_value": 2,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 0,
-                "x1": 1,
-                "x2": 1,
-                "x3": 1,
                 "x4": 0,
                 "x5": 1,
                 "x6": 1
             },
-            "obj_value": 3,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 1,
-                "x1": 1,
-                "x2": 0,
-                "x3": 0,
-                "x4": 1,
-                "x5": 0,
-                "x6": 0
-            },
-            "obj_value": 3,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 0,
-                "x1": 1,
-                "x2": 1,
-                "x3": 0,
-                "x4": 1,
-                "x5": 1,
-                "x6": 1
-            },
-            "obj_value": 3,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 0,
-                "x1": 1,
-                "x2": 0,
-                "x3": 1,
-                "x4": 1,
-                "x5": 1,
-                "x6": 0
-            },
-            "obj_value": 3,
+            "obj_value": 2,
             "feasible": true,
             "constraints": {}
         },
@@ -942,7 +1012,7 @@
                 "x5": 0,
                 "x6": 1
             },
-            "obj_value": 3,
+            "obj_value": 2,
             "feasible": true,
             "constraints": {}
         },
@@ -956,35 +1026,7 @@
                 "x5": 0,
                 "x6": 1
             },
-            "obj_value": 3,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 1,
-                "x1": 0,
-                "x2": 1,
-                "x3": 0,
-                "x4": 1,
-                "x5": 0,
-                "x6": 0
-            },
-            "obj_value": 3,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 0,
-                "x1": 1,
-                "x2": 1,
-                "x3": 0,
-                "x4": 1,
-                "x5": 0,
-                "x6": 0
-            },
-            "obj_value": 3,
+            "obj_value": 2,
             "feasible": true,
             "constraints": {}
         },
@@ -998,7 +1040,77 @@
                 "x5": 0,
                 "x6": 1
             },
-            "obj_value": 3,
+            "obj_value": 2,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1,
+                "x1": 1,
+                "x2": 0,
+                "x3": 0,
+                "x4": 1,
+                "x5": 0,
+                "x6": 1
+            },
+            "obj_value": 2,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1,
+                "x1": 1,
+                "x2": 0,
+                "x3": 0,
+                "x4": 1,
+                "x5": 0,
+                "x6": 1
+            },
+            "obj_value": 2,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1,
+                "x1": 1,
+                "x2": 0,
+                "x3": 0,
+                "x4": 1,
+                "x5": 0,
+                "x6": 1
+            },
+            "obj_value": 2,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1,
+                "x1": 1,
+                "x2": 0,
+                "x3": 0,
+                "x4": 1,
+                "x5": 0,
+                "x6": 1
+            },
+            "obj_value": 2,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1,
+                "x1": 0,
+                "x2": 1,
+                "x3": 1,
+                "x4": 1,
+                "x5": 0,
+                "x6": 0
+            },
+            "obj_value": 2,
             "feasible": true,
             "constraints": {}
         },
@@ -1012,119 +1124,7 @@
                 "x5": 0,
                 "x6": 0
             },
-            "obj_value": 3,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 0,
-                "x1": 1,
-                "x2": 1,
-                "x3": 1,
-                "x4": 1,
-                "x5": 0,
-                "x6": 0
-            },
-            "obj_value": 4,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 1,
-                "x1": 1,
-                "x2": 1,
-                "x3": 1,
-                "x4": 0,
-                "x5": 1,
-                "x6": 1
-            },
-            "obj_value": 4,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 1,
-                "x1": 0,
-                "x2": 1,
-                "x3": 1,
-                "x4": 1,
-                "x5": 0,
-                "x6": 0
-            },
-            "obj_value": 4,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 1,
-                "x1": 0,
-                "x2": 1,
-                "x3": 1,
-                "x4": 1,
-                "x5": 0,
-                "x6": 0
-            },
-            "obj_value": 4,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 1,
-                "x1": 0,
-                "x2": 1,
-                "x3": 1,
-                "x4": 1,
-                "x5": 0,
-                "x6": 0
-            },
-            "obj_value": 4,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 1,
-                "x1": 0,
-                "x2": 1,
-                "x3": 1,
-                "x4": 1,
-                "x5": 0,
-                "x6": 1
-            },
-            "obj_value": 4,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 1,
-                "x1": 0,
-                "x2": 1,
-                "x3": 1,
-                "x4": 1,
-                "x5": 0,
-                "x6": 0
-            },
-            "obj_value": 4,
-            "feasible": true,
-            "constraints": {}
-        },
-        {
-            "sample": {
-                "x0": 1,
-                "x1": 1,
-                "x2": 1,
-                "x3": 1,
-                "x4": 1,
-                "x5": 1,
-                "x6": 1
-            },
-            "obj_value": 5,
+            "obj_value": 2,
             "feasible": true,
             "constraints": {}
         }
@@ -1146,20 +1146,20 @@
         "use_qpu": true
     },
     "runtime": {
-        "total": 73.60599612805527,
-        "qpu": 1.9065
+        "total": 75.9349681440508,
+        "qpu": 1.9059084000000008
     },
     "sense": "min",
     "metadata": {
-        "qpu_sampling_time": 12880.800000000014,
+        "qpu_sampling_time": 12218.39999999998,
         "qpu_anneal_time_per_sample": 10.0,
-        "qpu_readout_time_per_sample": 81.21999999999997,
-        "qpu_access_time": 1906500.0,
-        "qpu_access_overhead_time": 89542.0,
-        "qpu_programming_time": 1893619.1999999962,
+        "qpu_readout_time_per_sample": 75.69999999999996,
+        "qpu_access_time": 1905908.4000000008,
+        "qpu_access_overhead_time": 304799.599999999,
+        "qpu_programming_time": 1893689.9999999977,
         "qpu_delay_time_per_sample": 16.11999999999995,
-        "post_processing_overhead_time": 574.0,
-        "total_post_processing_time": 574.0,
+        "post_processing_overhead_time": 120.0,
+        "total_post_processing_time": 120.0,
         "charge_time": null,
         "run_time": null,
         "dimod_ver": "0.12.17",
@@ -1173,11 +1173,11 @@
     "provider": "dwave",
     "status": "DONE",
     "optimization": {
-        "id": "674b7dace16c143066a93737",
+        "id": "674b81d007b410050331572c",
         "name": "My QUBO",
-        "created_date": "2024-11-30 21:03:40.586000+01:00",
+        "created_date": "2024-11-30 21:21:20.184000+01:00",
         "created_by": "marvin@raiser.dev",
-        "modified_date": "2024-11-30 21:04:56.834000+01:00",
+        "modified_date": "2024-11-30 21:22:37.887000+01:00",
         "modified_by": null,
         "original_format": "QUBO_MATRIX",
         "use_case_name": null,
