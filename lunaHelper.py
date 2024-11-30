@@ -1,5 +1,7 @@
 import os
 import json
+import luna_sdk
+
 
 def read_json(file_path):
     """
@@ -24,6 +26,12 @@ def read_json(file_path):
     except json.JSONDecodeError as e:
         raise ValueError(f"Invalid JSON format in file {file_path}: {e}")
 
+
+# Example usage
+# if ask_to_proceed():
+#     pass
+# else:
+#     exit()
 def ask_to_proceed(prompt="Do you want to proceed? (yes/no): "):
     while True:
         choice = input(prompt).strip().lower()
@@ -47,3 +55,15 @@ def exportSolution(solution, folder_name="output"):
     file_path = os.path.join(output_folder_path, f'{solution.created_date.strftime("%Y-%m-%d_%H-%M-%S")}_solution.json')
 
     write_json(solution, file_name=file_path)
+
+def qpu_token_create(ls, dwave_token):
+    try:
+        # Set your token to access D-Wave's hardware
+        ls.qpu_token.create(
+            name="PushQuantumDWaveToken",
+            provider="dwave",
+            token=dwave_token,
+            token_type="personal"
+        )
+    except luna_sdk.exceptions.luna_server_exception.LunaServerException as e:
+        print(e)
