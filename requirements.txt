@@ -6,3 +6,4 @@ dwave-ocean-sdk >=5.0
 qiskit-optimization >=0.5
 python-dotenv >= 1.0.1
 aqora-cli
+luna-quantum
