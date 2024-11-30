@@ -34,5 +34,7 @@ Classic:
 - 10
 - 20
 
-## Iterationen?
-- 1
+## Parameters
+- `p_size`: This is the population size, which affects how many solutions are considered in each step of the algorithm.
+- `mut_rate`: The mutation rate determines the chance of changes occurring in each solution per iteration.
+- `rec_rate`: The recommendation rate decides how many pairings are made for creating new solutions.

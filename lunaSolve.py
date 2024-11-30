@@ -6,7 +6,7 @@ from luna_sdk.schemas.qpu_token import QpuToken, TokenProvider
 
 from lunaHelper import read_json, exportSolution, qpu_token_create
 
-def lunaSolve(solver, qubo_matrix, solver_parameters):
+def lunaSolve(solver, qubo_matrix, solver_parameters, lidarVectorSize, solutionFile):
     print("Setting up the job..")
     # Retrieve api and tokens from .env file
     load_dotenv()
@@ -48,12 +48,29 @@ def lunaSolve(solver, qubo_matrix, solver_parameters):
         running = True if solution.status == "IN_PROGRESS" or solution.status == "REQUESTED" or solution.status == "CREATED" else False
         print("Status: " + str(solution.status), end="\r")
         time.sleep(2)
+    print(end="\r")
+    print("Done computing!                     ")
+
+    # Recalculate the objective value
+    for result in solution.results:
+        sum = 0
+        for i in range(lidarVectorSize):
+            sum = sum + result.sample["x"+str(i)]
+        if result.feasible:
+            result.obj_value = sum
+        else:
+            result.obj_value = lidarVectorSize + 1
+
+    # Sort the results according to the new objective value
+    solution.results.sort(key=lambda x: x.obj_value)
 
     # Store solution
-    exportSolution(solution=solution, folder_name="output")
+    exportSolution(solution=solution, output=solutionFile)
+    print("Exported solution!")
 
-lunaSolve("QAGA+", read_json("./input/test/qubo_00.json"), {
+
+lunaSolve(solver="QAGA+", qubo_matrix=read_json("./input/test/qubo_00.json"), solver_parameters={
             'p_size': 40,
             'mut_rate': 1,
             'rec_rate': 2
-        })
+        }, lidarVectorSize=5, solutionFile="./output/test/MySolution.json")
