@@ -1,0 +1,14 @@
+[project]
+name = "pushquantumsp"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "cplex>=20.1",
+    "docplex>=2.23",
+    "dwave-ocean-sdk>=5.0",
+    "matplotlib>=3.5",
+    "pygltflib>=1.16",
+    "qiskit-optimization>=0.5",
+]

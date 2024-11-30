@@ -9,7 +9,7 @@ plt = SPPlot(data).plot_problem()
 plt.show()
 
 cplex_model = SPCplex(data)
-answer = cplex_model.solve(TimeLimit=1)
+answer = cplex_model.solve(TimeLimit=10)
 
 evaluation = SPEvaluation(data, answer["solution"])
 print(f"solution clean: {evaluation.solution}")
