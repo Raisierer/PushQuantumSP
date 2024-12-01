@@ -12,6 +12,17 @@ def readJSON(file):
 def loadData(files, filesFolder):
     return [readJSON(os.path.join(filesFolder, file)) for file in files]
 
+
+# Example JSON structure:
+# {
+#     "categories": ["Category1", "Category2", "Category3", "Category4"],
+#     "data": {
+#         "Series1": [4, 2, 5, 3],
+#         "Series2": [3, 4, 2, 5]
+#     }
+# }
+
+
 filesFolder = "./generated"
 files = [
     "v2-c5-1-2-2-QA.json",
@@ -36,7 +47,7 @@ print(f"Number of labels: {len(categories)}")
 
 # Create the box plot
 plt.figure(figsize=(10, 6))
-plt.(
+plt.boxplot(
     dataseries,
     labels=categories,
     patch_artist=True,

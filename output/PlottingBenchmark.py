@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import json
 import os
 
-exampleName = "v3-c20-1-2-0.25"
+benchmarkName = "v3-c5-1-2-2"
 
 
 def readJSON(file):
@@ -20,9 +20,9 @@ files = [
     # "v2-c5-1-2-2-QA.json",
     # "v2-c5-1-2-2-QAGA+.json",
     # "v2-c5-1-2-2-SAGA+.json",
-    f"{exampleName}-QA.json",
-    f"{exampleName}-QAGA+.json",
-    f"{exampleName}-SAGA+.json",
+    f"{benchmarkName}-QA.json",
+    f"{benchmarkName}-QAGA+.json",
+    f"{benchmarkName}-SAGA+.json",
 ]
 
 dataRead = loadData(files, filesFolder)
@@ -57,10 +57,10 @@ for algorithm in data.items():
         label=algorithm[0],
     )
 
-plt.plot(range(1, 201), 11 * np.ones(200), marker="+", label="Ground Truth")
+plt.plot(range(1, 201), 3 * np.ones(200), marker="+", label="Ground Truth")
 
 # Customize the plot
-plt.title(exampleName, fontsize=16)
+plt.title(benchmarkName, fontsize=16)
 plt.xlabel("Sample Run", fontsize=12)
 plt.ylabel("Objective Value", fontsize=12)
 plt.legend(title="Algorithms", fontsize=10)
@@ -68,5 +68,5 @@ plt.grid(True)
 plt.tight_layout()
 
 # Show the plot
-plt.savefig(f"./newPlots/{exampleName}.png")
+plt.savefig(f"./benchmarkPlots/{benchmarkName}.png")
 plt.show()
