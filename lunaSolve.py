@@ -3,10 +3,11 @@ import time
 from dotenv import load_dotenv
 import luna_sdk
 from luna_sdk.schemas.qpu_token import QpuToken, TokenProvider
+import numpy as np
 
-from lunaHelper import read_json, exportSolution, qpu_token_create
+from lunaHelper import generateMatrix, read_json, exportSolution, qpu_token_create
 
-def solve(solver, qubo_matrix, solver_parameters, lidarVectorSize, solutionFile):
+def solveCustomMatrix(solver, qubo_matrix, lidarVectorSize, solutionFile):
     print("Setting up the job..")
     # Retrieve api and tokens from .env file
     load_dotenv()
@@ -16,7 +17,7 @@ def solve(solver, qubo_matrix, solver_parameters, lidarVectorSize, solutionFile)
     # Initiate the luna sdk objects
     ls = luna_sdk.LunaSolve(api_key=api_key)
     lq = luna_sdk.LunaQ(api_key=api_key)
-    dwaveTokenName = "Token3"
+    dwaveTokenName = "Token4"
 
     # Upload your QUBO to LunaSolve
     optimization = ls.optimization.create_from_qubo(name="My QUBO", matrix=qubo_matrix)
@@ -29,7 +30,7 @@ def solve(solver, qubo_matrix, solver_parameters, lidarVectorSize, solutionFile)
     # Solve the QUBO using the QAGA+ algorithm and retrieve a job
     job = ls.solution.create(
         optimization_id=optimization.id,
-        solver_name=solver,
+        solver_name=solver["name"],
         provider="dwave",
         qpu_tokens=TokenProvider(
             dwave=QpuToken(
@@ -37,7 +38,7 @@ def solve(solver, qubo_matrix, solver_parameters, lidarVectorSize, solutionFile)
                 name=dwaveTokenName
             )
         ),
-        solver_parameters=solver_parameters
+        solver_parameters=solver["params"]
     )
 
     # After the execution of your algorithm has been finished, retrieve your solution
@@ -55,11 +56,22 @@ def solve(solver, qubo_matrix, solver_parameters, lidarVectorSize, solutionFile)
     try:
         # Recalculate the objective value
         for result in solution.results:
-            sum = 0
-            for i in range(lidarVectorSize):
-                sum = sum + result.sample["x"+str(i)]
+            sorted_samples = {key: result.sample[key] for key in sorted(result.sample)}
+            #x_values = np.array([x for x in sorted_samples.values()])
+            #print(x_values)
+            #print(np.array(qubo_matrix))
+
+            #error_value = x_values.T @ np.array(qubo_matrix) @ x_values
+            
+            obj_val = sum([sorted_samples[f"x{ind}"] for ind in range(lidarVectorSize)])
+
+            # print(f"Equal? {error_value} == {obj_val}")
+
+            #sum = 0
+            #for i in range(lidarVectorSize):
+            #    sum = sum + result.sample["x"+str(i)]
             if result.feasible:
-                result.obj_value = sum
+                result.obj_value = obj_val
             else:
                 result.obj_value = lidarVectorSize + 1
 
@@ -69,12 +81,24 @@ def solve(solver, qubo_matrix, solver_parameters, lidarVectorSize, solutionFile)
         # Store solution
         exportSolution(solution=solution, output=solutionFile)
         print("Exported solution!")
-    except:
+    except Exception as e:
+        print(e)
         print("Error!!")
         print(solution)
 
+def solveGeneratedMatrix(solver, version=1, num_cols=3, P1=1, P2=2, P3=3):
+
+    filename = f'./output/generated/v{version}-c{num_cols}-{P1}-{P2}-{P3}-{solver["name"]}.json'
+
+    if os.path.exists(filename):
+        print("Already calculated. Skipping.")
+        return
+
+    qubo_matrix, lidarVectorSize = generateMatrix(version, num_cols, P1, P2, P3)
+    solveCustomMatrix(solver, qubo_matrix=qubo_matrix, lidarVectorSize=lidarVectorSize, solutionFile=filename)
+
 if __name__ == "__main__":
-    solve(solver="QAGA+", qubo_matrix=read_json("./input/test/qubo_00.json"), solver_parameters={
+    solveCustomMatrix(solver="QAGA+", qubo_matrix=read_json("./input/test/qubo_00.json"), solver_parameters={
                 'p_size': 40,
                 'mut_rate': 1,
                 'rec_rate': 2

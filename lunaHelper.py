@@ -68,13 +68,7 @@ def ensure_directories(file_path):
 
 
 def exportSolution(solution, output="test.json"):
-    # output_folder_path = os.path.join(os.getcwd(), folder_name)
-    # os.makedirs(output_folder_path, exist_ok=True)
-
     ensure_directories(output)
-
-    # file_path = os.path.join(output_folder_path, f'{solution.created_date.strftime("%Y-%m-%d_%H-%M-%S")}_solution.json')
-
     write_json(solution, file_name=output)
 
 
@@ -89,3 +83,14 @@ def qpu_token_create(ls, dwave_token, name):
         )
     except luna_sdk.exceptions.luna_server_exception.LunaServerException as e:
         print(e)
+
+
+def generateMatrix(version=1, num_cols=3, P1 = 1, P2 = 2, P3 = 2):
+    from data.sp_data import SPData
+    from models import SPQuboBinary
+
+    data = SPData().gen_problem(version=version, num_cols=num_cols, rad_max=2.4) 
+
+    qubo_model_bin = SPQuboBinary(data, P1=P1, P2=P2, P3=P3)
+
+    return qubo_model_bin.model, len(data.listLidar3D)

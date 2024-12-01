@@ -1,0 +1,209 @@
+{
+    "id": "674bc66972cca96fa1ddbb0c",
+    "name": null,
+    "created_date": "2024-12-01 02:14:01.261000+01:00",
+    "created_by": "marvin@raiser.dev",
+    "modified_date": "2024-12-01 02:14:04.721000+01:00",
+    "modified_by": null,
+    "error_message": null,
+    "solver_job_info": null,
+    "results": [
+        {
+            "sample": {
+                "x0": 1.0,
+                "x1": 0.0,
+                "x2": 0.0,
+                "x3": 0.0,
+                "x4": 0.0,
+                "x5": 0.0,
+                "x6": 0.0
+            },
+            "obj_value": 1.0,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1.0,
+                "x1": 0.0,
+                "x2": 0.0,
+                "x3": 0.0,
+                "x4": 0.0,
+                "x5": 0.0,
+                "x6": 1.0
+            },
+            "obj_value": 1.0,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1.0,
+                "x1": 0.0,
+                "x2": 0.0,
+                "x3": 0.0,
+                "x4": 1.0,
+                "x5": 0.0,
+                "x6": 0.0
+            },
+            "obj_value": 1.0,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 0.0,
+                "x1": 1.0,
+                "x2": 0.0,
+                "x3": 0.0,
+                "x4": 0.0,
+                "x5": 0.0,
+                "x6": 0.0
+            },
+            "obj_value": 1.0,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 0.0,
+                "x1": 0.0,
+                "x2": 1.0,
+                "x3": 0.0,
+                "x4": 0.0,
+                "x5": 0.0,
+                "x6": 0.0
+            },
+            "obj_value": 1.0,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1.0,
+                "x1": 0.0,
+                "x2": 1.0,
+                "x3": 1.0,
+                "x4": 1.0,
+                "x5": 0.0,
+                "x6": 0.0
+            },
+            "obj_value": 2.0,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 0.0,
+                "x1": 1.0,
+                "x2": 1.0,
+                "x3": 0.0,
+                "x4": 1.0,
+                "x5": 0.0,
+                "x6": 0.0
+            },
+            "obj_value": 2.0,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 1.0,
+                "x1": 1.0,
+                "x2": 0.0,
+                "x3": 0.0,
+                "x4": 1.0,
+                "x5": 0.0,
+                "x6": 1.0
+            },
+            "obj_value": 2.0,
+            "feasible": true,
+            "constraints": {}
+        },
+        {
+            "sample": {
+                "x0": 0.0,
+                "x1": 1.0,
+                "x2": 1.0,
+                "x3": 1.0,
+                "x4": 1.0,
+                "x5": 0.0,
+                "x6": 0.0
+            },
+            "obj_value": 2.0,
+            "feasible": true,
+            "constraints": {}
+        }
+    ],
+    "params": {
+        "embedding": {
+            "chain_strength": null,
+            "chain_break_fraction": true,
+            "embedding_parameters": {
+                "max_no_improvement": 100,
+                "random_seed": null,
+                "timeout": 1000,
+                "max_beta": null,
+                "tries": 100,
+                "inner_rounds": null,
+                "chainlength_patience": 10,
+                "max_fill": null,
+                "threads": 1,
+                "return_overlap": false,
+                "skip_initialization": false,
+                "initial_chains": [],
+                "fixed_chains": [],
+                "restrict_chains": [],
+                "suspend_chains": []
+            }
+        },
+        "sampling_params": {
+            "auto_scale": null,
+            "fast_anneal": false,
+            "flux_drift_compensation": true,
+            "h_gain_schedule": null,
+            "max_answers": 200,
+            "num_reads": 200,
+            "reduce_intersample_correlation": false
+        }
+    },
+    "runtime": {
+        "total": 2.2282731829909608,
+        "qpu": 0.03874556
+    },
+    "sense": "min",
+    "metadata": {
+        "qpu_sampling_time": 22984.0,
+        "qpu_anneal_time_per_sample": 20.0,
+        "qpu_readout_time_per_sample": 74.34,
+        "qpu_access_time": 38745.56,
+        "qpu_access_overhead_time": 887.44,
+        "qpu_programming_time": 15761.56,
+        "qpu_delay_time_per_sample": 20.58,
+        "post_processing_overhead_time": 31.0,
+        "total_post_processing_time": 31.0,
+        "charge_time": null,
+        "run_time": null,
+        "dimod_ver": "0.12.17",
+        "dwave_hybrid_ver": "0.6.12",
+        "dwave_cloud_client_ver": "0.13.1",
+        "preprocessing_ns": null,
+        "sampling_ns": null,
+        "postprocessing_ns": null
+    },
+    "solver": "QA",
+    "provider": "dwave",
+    "status": "DONE",
+    "optimization": {
+        "id": "674bc66872cca96fa1ddbb0b",
+        "name": "My QUBO",
+        "created_date": "2024-12-01 02:14:00.432000+01:00",
+        "created_by": "marvin@raiser.dev",
+        "modified_date": "2024-12-01 02:14:04.721000+01:00",
+        "modified_by": null,
+        "original_format": "QUBO_MATRIX",
+        "use_case_name": null,
+        "params": null
+    },
+    "representation": null
+}
