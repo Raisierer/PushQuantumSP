@@ -14,11 +14,11 @@ def solveCustomMatrix(solver, qubo_matrix, lidarVectorSize, solutionFile):
     load_dotenv()
     api_key = os.getenv("LUNA_API_TOKEN")
     dwave_token = os.getenv("D_WAVE_TOKEN")
+    dwaveTokenName = os.getenv("D_WAVE_TOKEN_NAME")
 
     # Initiate the luna sdk objects
     ls = luna_sdk.LunaSolve(api_key=api_key)
     lq = luna_sdk.LunaQ(api_key=api_key)
-    dwaveTokenName = "Token4"
 
     # Upload your QUBO to LunaSolve
     optimization = ls.optimization.create_from_qubo(name="My QUBO", matrix=qubo_matrix)
@@ -92,7 +92,6 @@ def solveCustomMatrix(solver, qubo_matrix, lidarVectorSize, solutionFile):
 
 
 def solveGeneratedMatrix(solver, version=1, num_cols=3, P1=1, P2=2, P3=3):
-
     filename = f'./output/generated/v{version}-c{num_cols}-{P1}-{P2}-{P3}-{solver["name"]}.json'
 
     if os.path.exists(filename):
