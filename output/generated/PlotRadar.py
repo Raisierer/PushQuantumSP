@@ -3,12 +3,23 @@ import numpy as np
 import matplotlib.pyplot as plt
 from math import pi
 
+
 # Load and process JSON data
 def load_json(file):
-    with open(file, 'r') as f:
+    with open(file, "r") as f:
         data = json.load(f)
     # Assuming we're extracting the first `sample` from `results` for comparison
-    return data['results'][0]['sample']
+
+    print(data["runtime"])
+
+    d = {
+        "obj_value": [r["obj_value"] for r in data["results"]],
+        "runtime-qpu": data["runtime"]["qpu"],
+        "qpu_access_time": data["metadata"]["qpu_access_time"],
+    }
+
+    return d
+
 
 def plot_combined_radar_chart(files, labels):
     datasets = [load_json(file) for file in files]
@@ -24,7 +35,7 @@ def plot_combined_radar_chart(files, labels):
     for dataset, label in zip(datasets, labels):
         values = list(dataset.values())
         values += values[:1]
-        ax.plot(angles, values, linewidth=2, linestyle='solid', label=label)
+        ax.plot(angles, values, linewidth=2, linestyle="solid", label=label)
         ax.fill(angles, values, alpha=0.25)
 
     # Add labels and legend
@@ -33,10 +44,18 @@ def plot_combined_radar_chart(files, labels):
     ax.set_yticks([0.25, 0.5, 0.75, 1.0])
     ax.set_yticklabels(["25%", "50%", "75%", "100%"], color="gray", size=8)
     ax.set_ylim(0, 1)
-    plt.legend(loc='upper right', bbox_to_anchor=(1.3, 1.1))
-    plt.title("Radar Chart Comparison", size=16, weight='bold', y=1.1)
+    plt.legend(loc="upper right", bbox_to_anchor=(1.3, 1.1))
+    plt.title("Radar Chart Comparison", size=16, weight="bold", y=1.1)
     plt.show()
 
-files = ['v1-c5-1-2-0.5-QA.json','v1-c5-1-2-0.5-QAGA+.json', 'v1-c5-1-2-0.5-SAGA+.json']
-labels = ['QA', 'QAGA+', 'SAGA+']
+
+files = [
+    "v1-c5-1-2-0.5-QA.json",
+    "v1-c5-1-2-0.5-QAGA+.json",
+    "v1-c5-1-2-0.5-SAGA+.json",
+]
+labels = ["QA", "QAGA+", "SAGA+"]
 plot_combined_radar_chart(files, labels)
+
+
+categories = ["obj_value", "runtime/qpu", "qpu_access_time"]

@@ -5,7 +5,7 @@ from models import SPQuboBinary
 from evaluation.evaluation import SPEvaluation
 from plotting.sp_plot import SPPlot
 
-params = {"version": 1, "num_cols": 5, "rad_max": 2.4}
+params = {"version": 3, "num_cols": 20, "rad_max": 2.4}
 data = SPData().gen_problem(**params)
 plt = SPPlot(data).plot_problem()
 plt.show()

@@ -1,11 +1,13 @@
-
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-#from dotenv import load_dotenv
 
-#import luna_sdk
-#from use_case import get_active_edges
+from lunaSolve import solveCustomMatrix
+
+# from dotenv import load_dotenv
+
+# import luna_sdk
+# from use_case import get_active_edges
 
 
 # Example input. Parameters will be injected here by aqora
@@ -15,15 +17,18 @@ input = (
     # V_S
     np.array([1, 1, 1, 1, 1], dtype=np.int8),
     # Edges (L x S)
-    np.array([
-       [0, 1, 1, 1, 0],
-       [1, 0, 0, 0, 1],
-       [0, 0, 0, 0, 0],
-       [0, 0, 0, 1, 1],
-       [0, 0, 0, 0, 0],
-       [0, 0, 0, 1, 0]],
-    dtype=np.int8)
-) 
+    np.array(
+        [
+            [0, 1, 1, 1, 0],
+            [1, 0, 0, 0, 1],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 1, 1],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 1, 0],
+        ],
+        dtype=np.int8,
+    ),
+)
 
 
 V_L, V_S, edges = input
@@ -33,25 +38,40 @@ V_L, V_S, edges = input
 def plt_bipartite_graph(V_L, V_S, edges, block=False):
     # Set up positions for nodes in the two sets
     x_l = np.zeros(len(V_L))  # x-coordinates of the first set
-    y_l= np.linspace(0, 1, len(V_L))  # y-coordinates of the first set
+    y_l = np.linspace(0, 1, len(V_L))  # y-coordinates of the first set
     x_s = np.ones(len(V_S))  # x-coordinates of the second set
     y_s = np.linspace(0, 1, len(V_S))  # y-coordinates of the second set
 
     # Plot the nodes
-    plt.scatter(x_l[V_L.nonzero()], y_l[V_L.nonzero()], color='green', label='V_L active')
-    plt.scatter(x_l[np.nonzero(V_L == 0)], y_l[np.nonzero(V_L == 0)], color='red', label='V_L inactive')
-    plt.scatter(x_s, y_s, color='blue', label='V_S')
+    plt.scatter(
+        x_l[V_L.nonzero()], y_l[V_L.nonzero()], color="green", label="V_L active"
+    )
+    plt.scatter(
+        x_l[np.nonzero(V_L == 0)],
+        y_l[np.nonzero(V_L == 0)],
+        color="red",
+        label="V_L inactive",
+    )
+    plt.scatter(x_s, y_s, color="blue", label="V_S")
 
     # Plot the edges
     for i in range(len(V_L)):
         for j in range(len(V_S)):
-            if edges[i, j] == 1:  # There's an edge between node i in Set 1 and node j in Set 2
-                plt.plot([x_l[i], x_s[j]], [y_l[i], y_s[j]], color='gray', linestyle='-', linewidth=1)
+            if (
+                edges[i, j] == 1
+            ):  # There's an edge between node i in Set 1 and node j in Set 2
+                plt.plot(
+                    [x_l[i], x_s[j]],
+                    [y_l[i], y_s[j]],
+                    color="gray",
+                    linestyle="-",
+                    linewidth=1,
+                )
 
     # Add labels and legend
     plt.title("Bipartite Graph")
     plt.legend()
-    plt.axis('off')
+    plt.axis("off")
     plt.show(block=block)
 
 
@@ -115,7 +135,7 @@ for point in streetpoints:
         used_lidars.append(ls[0])
         if bits == 0:
             mandatory_lidars.append(ls[0])
-        
+
     s_list.append([lidar_per_sp, {s_size + i + 1: 2**i for i in range(bits)}])
     s_size += bits
 
@@ -125,24 +145,21 @@ used_lidars_idx = dict(zip(used_lidars, idx_list))
 
 for s in s_list:
     if s[1]:
-        s[1] = {
-            key + len(used_lidars) - 1: -value
-            for key, value in s[1].items()
-        }
+        s[1] = {key + len(used_lidars) - 1: -value for key, value in s[1].items()}
 
 size += s_size
 
 # Calc Q
-Q = np.zeros((size,size))
+Q = np.zeros((size, size))
 P1 = 1
 P2 = 2
 P3 = 2
 
 
 for i in range(0, len(used_lidars)):
-    Q[i,i] = P1
+    Q[i, i] = P1
     if used_lidars[i] in mandatory_lidars:
-        Q[i,i] -= P2
+        Q[i, i] -= P2
 
 for s in s_list:
     if s[1]:
@@ -153,39 +170,39 @@ for s in s_list:
         ldict.update(sdict)
 
         for i in ldict:
-            Q[i,i] -= 2 * P3 * ldict[i]
+            Q[i, i] -= 2 * P3 * ldict[i]
             for j in ldict:
-                Q[i,j] += P3 * ldict[i] * ldict[j] 
+                Q[i, j] += P3 * ldict[i] * ldict[j]
 
-#def to_binary(value) -> np.NDArray[np.int8]:
+# def to_binary(value) -> np.NDArray[np.int8]:
 #    bits = math.floor(math.log2(value))
 #    np.zeros((bits,))
 #    for k in range()
 
 # Main diagonal
-#for i in range(len(V_L)):
+# for i in range(len(V_L)):
 #    Q[i,i] = 1
 
-#print(len(lidar_points))
-#print(len(streetpoints))
-#print(s_idx)
+# print(len(lidar_points))
+# print(len(streetpoints))
+# print(s_idx)
 
-#def int_to_binary(value, max_size) -> NDArray[np.int8]:
+# def int_to_binary(value, max_size) -> NDArray[np.int8]:
 #    bin_array = np.zeros(max_size, dtype=np.int8)
 #    bin_str = bin(value)
 #    for idx, b in enumerate(bin_str[2:]):
 #        bin_array[idx] = b
 #    return bin_array
 
-#point: NodeView
-#for point in streetpoints:
+# point: NodeView
+# for point in streetpoints:
 #    neighbours = list(graph.neighbors(point))
 #    print(f"neighbours: {list(neighbours)}")
 
-    #A = np.zeros((len(V_L), len(V_L)))
-    #for n in range(len(V_L)):
-    #    for m in range(len(V_L)):
-    #        A[n,m] += 1 if f"ld{n}" in neighbours and f"ld{m}" in neighbours else 0
+# A = np.zeros((len(V_L), len(V_L)))
+# for n in range(len(V_L)):
+#    for m in range(len(V_L)):
+#        A[n,m] += 1 if f"ld{n}" in neighbours and f"ld{m}" in neighbours else 0
 #
 #    print(f"A = {A}")
 #    Q[0:len(V_L), 0:len(V_L)] += A
@@ -203,9 +220,17 @@ for s in s_list:
 #    Q[len(V_L):size, size - len(V_L):size] -= B.T
 #    Q[size - len(V_L):size, len(V_L):size] -= B
 
-print(Q)   
+print(Q)
+
+solveCustomMatrix(
+    solver={"name": "SAGA+", "params": {"p_size": 40, "mut_rate": 1, "rec_rate": 2}},
+    qubo_matrix=Q,
+    lidarVectorSize=len(V_L),
+    solutionFile="./submission/solution.json",
+)
+
 
 # We do a trivial solution for the example input
 V_L[2:] = 0
 
-#plt_bipartite_graph(V_L, V_S, get_active_edges(V_L, V_S, edges))
+# plt_bipartite_graph(V_L, V_S, get_active_edges(V_L, V_S, edges))
