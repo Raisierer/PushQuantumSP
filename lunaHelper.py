@@ -18,7 +18,7 @@ def read_json(file_path):
         json.JSONDecodeError: If the file content is not valid JSON.
     """
     try:
-        with open(file_path, 'r') as file:
+        with open(file_path, "r") as file:
             data = json.load(file)
         return data
     except FileNotFoundError:
@@ -35,10 +35,10 @@ def read_json(file_path):
 def ask_to_proceed(prompt="Do you want to proceed? (yes/no): "):
     while True:
         choice = input(prompt).strip().lower()
-        if choice in ['yes', 'y']:
+        if choice in ["yes", "y"]:
             print("Proceeding...")
             return True
-        elif choice in ['no', 'n']:
+        elif choice in ["no", "n"]:
             print("Operation cancelled.")
             return False
         else:
@@ -46,8 +46,14 @@ def ask_to_proceed(prompt="Do you want to proceed? (yes/no): "):
 
 
 def write_json(solution, file_name):
-    with open(file_name, 'w', encoding='utf-8') as f:
-        json.dump(solution, f, ensure_ascii=False, default=lambda x: x.__dict__ if hasattr(x, '__dict__') else str(x), indent=4)
+    with open(file_name, "w", encoding="utf-8") as f:
+        json.dump(
+            solution,
+            f,
+            ensure_ascii=False,
+            default=lambda x: x.__dict__ if hasattr(x, "__dict__") else str(x),
+            indent=4,
+        )
 
 
 def ensure_directories(file_path):
@@ -76,20 +82,17 @@ def qpu_token_create(ls, dwave_token, name):
     try:
         # Set your token to access D-Wave's hardware
         ls.qpu_token.create(
-            name=name,
-            provider="dwave",
-            token=dwave_token,
-            token_type="personal"
+            name=name, provider="dwave", token=dwave_token, token_type="personal"
         )
     except luna_sdk.exceptions.luna_server_exception.LunaServerException as e:
         print(e)
 
 
-def generateMatrix(version=1, num_cols=3, P1 = 1, P2 = 2, P3 = 2):
+def generateMatrix(version=1, num_cols=3, P1=1, P2=2, P3=2):
     from data.sp_data import SPData
     from models import SPQuboBinary
 
-    data = SPData().gen_problem(version=version, num_cols=num_cols, rad_max=2.4) 
+    data = SPData().gen_problem(version=version, num_cols=num_cols, rad_max=2.4)
 
     qubo_model_bin = SPQuboBinary(data, P1=P1, P2=P2, P3=P3)
 
