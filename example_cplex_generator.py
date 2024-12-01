@@ -19,5 +19,5 @@ for constraint, violations in evaluation.check_solution().items():
     if len(violations) > 0:
         print(f"constraint {constraint} was violated {len(violations)} times")
 
-plt = SPPlot(data, evaluation).plot_solution(hide_never_covered = True)
+plt = SPPlot(data, evaluation).plot_solution(hide_never_covered=True)
 plt.show()
