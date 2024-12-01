@@ -37,6 +37,8 @@
                     pkgs.python311Packages.numpy
                     pkgs.python311Packages.matplotlib
                     pkgs.python311Packages.simanneal
+                    pkgs.python311Packages.pip
+                    #pkgs.python311Packages.venvShellHook
                   ];
 
                   enterShell = ''
